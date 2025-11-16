@@ -1,0 +1,111 @@
+.journal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1em;
+    box-shadow: var(--shadow-right-bottom) var(--shadow-colour);
+
+    @media (hover: hover) {
+        & button:hover {
+            opacity: 0.5;
+        }
+    }
+
+    & label {
+        font-weight: var(--bold);
+        padding-block-end: 0.5em;
+    }
+
+    & > div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    & .image-input {
+        width: 100%;
+        &::file-selector-button {
+            background-color: var(--accent-colour);
+            color: var(--el-bg);
+
+            width: fit-content;
+
+            color: var(--el-bg);
+            padding: 1em 0.75em;
+            border-radius: 100vw;
+            text-box: trim-both cap alphabetic;
+            margin-inline-end: 1rem;
+        }
+    }
+
+    & .btn-group {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+
+        & button:first-of-type {
+            margin-inline-start: auto;
+        }
+
+        & .button-cancel {
+            border-radius: 0.5rem;
+        }
+    }
+
+    &.hide {
+        display: none;
+    }
+
+    & .journal-form-header {
+        & .date-picker {
+            display: flex;
+            flex-direction: column;
+        }
+
+        & .journal-entry-date {
+            width: fit-content;
+            cursor: pointer;
+        }
+    }
+
+    & .journal-image-input {
+        overflow: hidden;
+        gap: 1rem;
+
+        & .file-names {
+            font-weight: 400;
+            font-family: "Courier New", Courier, monospace;
+            display: block;
+            margin-block-end: 0.5rem;
+        }
+    }
+
+    & .alt-text-wrapper {
+        &.hide {
+            display: none;
+        }
+        & .inner {
+            display: flex;
+            flex-direction: column;
+        }
+
+        & label {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        & textarea:focus-visible {
+            outline-offset: -1px;
+        }
+
+        & button {
+            margin-inline-start: auto;
+            border-radius: 0.5rem;
+        }
+    }
+
+    & .character-count,
+    & .character-limit-message {
+        margin-block-end: 0.75rem;
+    }
+}
