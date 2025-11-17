@@ -1,4 +1,3 @@
-// js-modules/journal/entry-display-helpers/edit-entry.js
 import toggleContentEditable from "./toggle-content-editable.js"
 import toggleEditButton from "./toggle-edit-button.js"
 

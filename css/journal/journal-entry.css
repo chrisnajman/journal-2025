@@ -42,6 +42,10 @@
         outline: 0.125rem dotted rgb(var(--focus));
         padding: 1em;
 
+        &:empty {
+            display: block;
+        }
+
         &:focus {
             cursor: default;
             outline-style: solid;

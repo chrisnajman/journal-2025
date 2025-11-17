@@ -74,6 +74,7 @@
         grid-column: 3;
         justify-self: end;
         background-color: var(--accent-colour);
+        border-radius: 100vw;
     }
 
     @media (width < 40.625rem) {

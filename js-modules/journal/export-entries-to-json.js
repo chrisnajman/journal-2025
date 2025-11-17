@@ -1,4 +1,3 @@
-// js-modules/journal/export-entries-to-json.js
 import { dbGetAllEntries } from "./storage.js"
 
 /** Pad a number to 2 digits */

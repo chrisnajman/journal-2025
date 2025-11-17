@@ -1,4 +1,3 @@
-// js-modules/journal/entry-form.js
 import updateAttributes from "../helpers/update-attributes.js"
 import {
   populatePlaceholder,

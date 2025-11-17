@@ -1,12 +1,9 @@
-// js-modules/journal/entry-display.js
 import updateAttributes from "../helpers/update-attributes.js"
 import renderJournalEntry from "./entry-display-helpers/render-entry.js"
-import { editHeading, editText } from "./entry-display-helpers/index.js"
 import {
-  removeImage as removeImageHelper,
-  deleteEntry as deleteEntryHelper,
   updateDeleteAllButton,
-  handleDeleteAll as handleDeleteAllHelper,
+  editHeading,
+  editText,
 } from "./entry-display-helpers/index.js"
 import { dbDeleteEntry, dbDeleteAllEntries, dbUpdateEntry } from "./storage.js"
 import lazyLoad from "../observers/lazy-load-intersection-observer.js"

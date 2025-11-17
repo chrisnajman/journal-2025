@@ -1,4 +1,4 @@
-// js-modules/journal/render-entry.js
+import sanitiseAndFormatText from "./sanitise-and-format-text.js"
 import updateAttributes from "../../helpers/update-attributes.js"
 
 /**
@@ -24,9 +24,17 @@ export default function renderJournalEntry(entry, template, list) {
   if (textEl) textEl.textContent = entry.text
   if (dateEl) dateEl.textContent = entry.date
 
+  // Convert \n (from textarea) → <br> for display
+  textEl.innerHTML = entry.text.replace(/\n/g, "<br>")
+
+  // Enable clean editing behavior every time this element becomes contenteditable
+  sanitiseAndFormatText(textEl)
+
   // Handle image
   if (entry.imageBlob) {
     imageWrapper.innerHTML = ""
+
+    imageWrapper.classList.add("journal-image-wrapper")
 
     const img = document.createElement("img")
     img.classList.add("lazy-loaded-image", "lazy")

@@ -1,5 +1,5 @@
 export default function sanitiseAndFormatText(textEl) {
-  // Insert <br> on Enter (instead of <div>/<p>)
+  // Insert <br> on Enter (instead of <div>)
   textEl.addEventListener("keydown", (e) => {
     if (e.key !== "Enter") return
     e.preventDefault()

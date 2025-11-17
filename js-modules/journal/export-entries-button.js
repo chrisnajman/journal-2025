@@ -1,4 +1,3 @@
-// js-modules/journal/export-entries-button.js
 import exportEntriesToJSON from "./export-entries-to-json.js"
 import { dbGetAllEntries } from "./storage.js"
 
