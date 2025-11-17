@@ -5,7 +5,7 @@ import pageHeaderResizeObserver from "./js-modules/observers/page-header-resize-
 
 import journalEntryForm from "./js-modules/journal/entry-form.js"
 import journalEntryDisplay from "./js-modules/journal/entry-display.js"
-import exportEntriesButton from "./js-modules/journal/export-entries-button.js"
+import exportEntriesButton from "./js-modules/journal/export-entries/export-entries-button.js"
 import { dbGetAllEntries } from "./js-modules/journal/storage.js"
 
 stickyShadow()
