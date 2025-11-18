@@ -75,9 +75,7 @@ export default function journalEntryForm({
     enableRequiredFields(
       formElements.date,
       formElements.heading,
-      formElements.text,
-      formElements.image.wrapper,
-      formElements.image.altText
+      formElements.text
     )
   })
 
@@ -108,10 +106,6 @@ export default function journalEntryForm({
   // Submit form
   formElements.form.addEventListener("submit", async (e) => {
     e.preventDefault()
-
-    if (formElements.image.wrapper.classList.contains("hide")) {
-      formElements.image.altText.removeAttribute("required")
-    }
 
     populatePlaceholder(
       formElements.heading,

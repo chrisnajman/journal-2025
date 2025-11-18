@@ -1,7 +1,6 @@
 // Show alt text input
 export function showAltText(imageElements) {
   imageElements.wrapper.classList.remove("hide")
-  imageElements.altText.setAttribute("required", "")
   imageElements.cancelButton.removeAttribute("disabled")
 }
 
@@ -9,7 +8,6 @@ export function showAltText(imageElements) {
 export function hideAltText(imageElements) {
   imageElements.input.value = ""
   imageElements.wrapper.classList.add("hide")
-  imageElements.altText.removeAttribute("required")
   imageElements.altText.value = ""
   imageElements.charCounter.textContent = "0/150"
   imageElements.charLimit.textContent = ""

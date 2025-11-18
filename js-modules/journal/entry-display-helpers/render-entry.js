@@ -38,7 +38,7 @@ export default function renderJournalEntry(entry, template, list) {
 
     const img = document.createElement("img")
     img.classList.add("lazy-loaded-image", "lazy")
-    img.alt = entry.imageAlt || ""
+    img.setAttribute("alt", entry.imageAlt || "")
 
     // Use Blob URL for lazy loading
     const blobUrl = URL.createObjectURL(entry.imageBlob)
