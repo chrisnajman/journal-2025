@@ -1,5 +1,6 @@
 import exportEntriesToJSON from "./export-entries-to-json.js"
 import { dbGetAllEntries } from "../storage.js"
+import { showLoader, hideLoader } from "../../loader.js"
 
 export default function exportEntriesButton() {
   const button = document.getElementById("export-entries")
@@ -22,10 +23,22 @@ export default function exportEntriesButton() {
   }
 
   button.addEventListener("click", async () => {
-    await exportEntriesToJSON()
+    // Show loader immediately
+    showLoader("Creating JSON file…")
+
+    try {
+      // Export entries to JSON
+      await exportEntriesToJSON()
+      // Announce success
+      hideLoader("JSON file ready.")
+    } catch (err) {
+      console.error("Export failed:", err)
+      hideLoader("Failed to create JSON file.")
+      alert("Export failed. See console for details.")
+    }
   })
 
-  // Initialize
+  // Initialize button state
   updateButtonState()
 
   return { updateButtonState }

@@ -30,6 +30,43 @@ async function blobToBase64(blob) {
   return btoa(binary)
 }
 
+/** Write Blob using native file picker */
+async function saveUsingFilePicker(blob, suggestedName) {
+  try {
+    const handle = await window.showSaveFilePicker({
+      suggestedName,
+      types: [
+        {
+          description: "JSON file",
+          accept: { "application/json": [".json"] },
+        },
+      ],
+    })
+
+    const writable = await handle.createWritable()
+    await writable.write(blob)
+    await writable.close()
+
+    return true
+  } catch (err) {
+    // User cancelled the dialog — do not treat as an error
+    if (err.name === "AbortError") return true
+    throw err
+  }
+}
+
+/** Save using the classic <a download> fallback */
+function saveUsingDownloadLink(blob, filename) {
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement("a")
+  a.href = url
+  a.download = filename
+  document.body.appendChild(a)
+  a.click()
+  document.body.removeChild(a)
+  URL.revokeObjectURL(url)
+}
+
 /** Export all journal entries to a JSON file */
 export default async function exportEntriesToJSON(
   baseKey = "JOURNAL_2025-entries"
@@ -82,13 +119,20 @@ export default async function exportEntriesToJSON(
   const now = new Date()
   const { dateString, timeString } = utcTimestampParts(now)
 
+  const filename = `${baseKey}-${dateString}_${timeString}.json`
   const blob = new Blob([data], { type: "application/json" })
-  const url = URL.createObjectURL(blob)
-  const a = document.createElement("a")
-  a.href = url
-  a.download = `${baseKey}-${dateString}_${timeString}.json`
-  document.body.appendChild(a)
-  a.click()
-  document.body.removeChild(a)
-  URL.revokeObjectURL(url)
+
+  // --- New "Save As…" dialog path ---
+  if (window.showSaveFilePicker) {
+    try {
+      await saveUsingFilePicker(blob, filename)
+      return
+    } catch (err) {
+      console.error("Failed using file picker, falling back:", err)
+      // fall through to fallback
+    }
+  }
+
+  // --- Fallback for unsupported browsers ---
+  saveUsingDownloadLink(blob, filename)
 }
