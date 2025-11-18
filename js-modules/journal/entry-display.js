@@ -107,6 +107,7 @@ export default function journalEntryDisplay({
 
     // REMOVE IMAGE
     if (e.target.matches("[data-remove-image-button]")) {
+      if (!confirm("Are you sure you want to delete the image?")) return
       const imageWrapper = parent.querySelector("[data-journal-image-wrapper]")
       if (imageWrapper) imageWrapper.innerHTML = ""
       if (entry) {
