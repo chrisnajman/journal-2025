@@ -7,7 +7,7 @@ import {
   hideAltText,
   updateCharacterCounter,
 } from "./entry-form-helpers/index.js"
-import { dbAddEntry } from "./storage.js" // IndexedDB addEntry
+import { dbAddEntry } from "./storage/storage.js" // IndexedDB addEntry
 
 export default function journalEntryForm({
   addEntry,

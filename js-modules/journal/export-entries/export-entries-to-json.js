@@ -1,4 +1,4 @@
-import { dbGetAllEntries } from "../storage.js"
+import { dbGetAllEntries } from "../storage/storage.js"
 
 /** Pad a number to 2 digits */
 function pad(num) {

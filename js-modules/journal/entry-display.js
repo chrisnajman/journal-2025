@@ -5,7 +5,11 @@ import {
   editHeading,
   editText,
 } from "./entry-display-helpers/index.js"
-import { dbDeleteEntry, dbDeleteAllEntries, dbUpdateEntry } from "./storage.js"
+import {
+  dbDeleteEntry,
+  dbDeleteAllEntries,
+  dbUpdateEntry,
+} from "./storage/storage.js"
 import lazyLoad from "../observers/lazy-load-intersection-observer.js"
 
 export default function journalEntryDisplay({

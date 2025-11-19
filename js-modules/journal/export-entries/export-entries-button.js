@@ -1,5 +1,5 @@
 import exportEntriesToJSON from "./export-entries-to-json.js"
-import { dbGetAllEntries } from "../storage.js"
+import { dbGetAllEntries } from "../storage/storage.js"
 import { showLoader, hideLoader } from "../../loader.js"
 
 export default function exportEntriesButton() {
