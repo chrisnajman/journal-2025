@@ -57,6 +57,13 @@
             <span>Journal</span>
         </p>
 
+        <nav class="primary-navigation">
+            <ul>
+                <li><a href="./" aria-current="page">Home</a></li>
+                <li><a href="./how-to-use.html">How to use</a></li>
+            </ul>
+        </nav>
+
         <!-- No JS -->
         <noscript>
             <p>This app requires JavaScript to function.</p>
@@ -65,7 +72,7 @@
 
     <main class="main container journal" id="main-content" tabindex="0">
         <h1 class="visually-hidden">Entries</h1>
-        <div class="journal-button-group">
+        <div class="journal-button-group" id="journal-button-group">
             <button id="delete-all-entries" class="toggle-disabled delete-all-entries" disabled>Delete all
                 entries</button>
             <button id="create-entry" class="button-create-entry">Create entry</button>

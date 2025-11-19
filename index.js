@@ -14,7 +14,11 @@ loadingAnimation()
 pageHeaderResizeObserver()
 
 async function init() {
-  // 1️⃣ Get stored entries from IndexedDB
+  // Check if the main journal buttons exist:
+  const journalButtonGroup = document.getElementById("journal-button-group")
+  if (!journalButtonGroup) return
+
+  // 1️Get stored entries from IndexedDB
   let entries = []
   try {
     entries = await dbGetAllEntries()
@@ -22,16 +26,16 @@ async function init() {
     console.error("Failed to load entries from IndexedDB", err)
   }
 
-  // 2️⃣ Initialize Export button
+  // Initialize Export button
   const { updateButtonState: updateExportButton } = exportEntriesButton()
 
-  // 3️⃣ Initialize journal display
+  // Initialize journal display
   const { addEntry } = journalEntryDisplay({
     entries,
     updateExportButton,
   })
 
-  // 4️⃣ Initialize journal form
+  // Initialize journal form
   journalEntryForm({
     addEntry,
     updateExportButton,

@@ -79,19 +79,19 @@ h3 {
 }
 
 .h1,
-h1,
-h2,
-h3 {
+h2 {
     font-weight: normal;
 }
 
 h1,
-h2,
-h3 {
+h2 {
     text-align: center;
 }
 
-h1,
+h1 {
+    font-size: clamp(1.5rem, 1.2991rem + 0.9346vw, 2rem);
+}
+
 h2 {
     font-size: clamp(1.25rem, 1.1495rem + 0.4673vw, 1.5rem);
 }
@@ -100,8 +100,22 @@ h3 {
     font-size: clamp(1.156rem, 1.1182rem + 0.1757vw, 1.25rem);
 }
 
+h4 {
+    font-size: 1.1rem;
+}
+
 h2 {
     font-weight: var(--bold);
+}
+
+h3,
+h4 {
+    text-align: left;
+    font-weight: var(--bold);
+}
+
+h4 {
+    text-transform: uppercase;
 }
 
 button,
@@ -143,6 +157,14 @@ a {
 ul {
     list-style-type: "";
     padding-inline-start: 0;
+
+    &.bullet {
+        list-style-type: disc;
+        padding-inline-start: 1.5rem;
+        & ul {
+            list-style-type: disc;
+        }
+    }
 
     & ul {
         padding-inline-start: 1.5rem;
@@ -198,24 +220,14 @@ a[href^="https"] {
     background-color: var(--el-bg);
 }
 
-.header,
 .footer {
+    text-align: center;
     padding-block: 1.5em;
 }
 
-.footer {
-    /* padding: 3rem 2rem; */
-    /* padding-block: 1.25rem; */
-    text-align: center;
-    /* box-shadow: var(--shadow-top) var(--shadow-colour); */
-}
-
 .header {
-    /* display: flex;
-    flex-direction: column; */
-    /* padding-block: 1.25rem; */
     margin-block-start: 0;
-    /* box-shadow: var(--shadow-bottom) var(--shadow-colour); */
+    padding-block: 1.5em 1em;
 }
 
 .main {
