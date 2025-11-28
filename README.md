@@ -8,7 +8,7 @@
 - [JavaScript](#javascript)
 - [No JS](#no-js)
 - [IndexedDB](#indexeddb)
-- [Running the App from the Local File System]()
+- [Running the App from the Local File System](#running-the-app-from-the-local-file-system)
 - [CSS](#css)
 - [Accessibility](#accessibility)
 - [Theme Toggling](#theme-toggling)
