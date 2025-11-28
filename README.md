@@ -287,7 +287,8 @@ No "Live Server", no terminal commands, no Node modules - it's completely standa
 > [!NOTE]
 > All entries are saved locally using **IndexedDB**, in a database named `journal2025local`.
 
-> [!NOTE] > `style.css` has also been minified.
+> [!NOTE]
+> `style.css` has also been minified.
 
 > [!CAUTION]
 > The full application logic is inside the minified file `journal-2025-local.js`.  
