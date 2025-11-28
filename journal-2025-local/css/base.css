@@ -1,0 +1,274 @@
+*,
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+:focus-visible {
+    outline: 0.125rem solid rgb(var(--focus));
+    outline-offset: 0.1875rem;
+}
+
+body {
+    font-size: clamp(1.156rem, 1.1182rem + 0.1757vw, 1.25rem);
+    font-family: Calibri, system-ui, sans-serif;
+    background-color: var(--body-bg);
+    @media (prefers-reduced-motion: no-preference) {
+        transition: background-color 250ms linear;
+    }
+    color: var(--body-fg);
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    line-height: 1.5;
+    position: relative;
+}
+
+.h1 {
+    font-size: clamp(1.75rem, 1.4486rem + 1.4019vw, 2.5rem);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-inline: auto;
+    align-items: center;
+    justify-content: center;
+
+    & svg {
+        width: 3.125rem;
+        height: 3.125rem;
+        fill: var(--body-fg);
+    }
+
+    & span {
+        text-align: center;
+        text-box: var(--trim);
+    }
+
+    @media screen and (width < 31.25rem) {
+        line-height: 1.2;
+        gap: 0.75rem;
+        margin-inline: 0.75rem;
+    }
+}
+
+picture {
+    display: block;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+p {
+    text-wrap: pretty;
+
+    &:empty {
+        display: none;
+    }
+}
+
+.h1,
+h1,
+h2,
+h3 {
+    text-wrap: balance;
+}
+
+.h1,
+h2 {
+    font-weight: normal;
+}
+
+h1,
+h2 {
+    text-align: center;
+}
+
+h1 {
+    font-size: clamp(1.5rem, 1.2991rem + 0.9346vw, 2rem);
+}
+
+h2 {
+    font-size: clamp(1.25rem, 1.1495rem + 0.4673vw, 1.5rem);
+}
+
+h3 {
+    font-size: clamp(1.156rem, 1.1182rem + 0.1757vw, 1.25rem);
+}
+
+h4 {
+    font-size: 1.1rem;
+}
+
+h2 {
+    font-weight: var(--bold);
+}
+
+h3,
+h4 {
+    text-align: left;
+    font-weight: var(--bold);
+}
+
+h4 {
+    text-transform: uppercase;
+}
+
+button,
+input,
+::file-selector-button,
+textarea {
+    all: unset;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+button,
+::file-selector-button {
+    cursor: pointer;
+}
+
+input,
+textarea {
+    background-color: var(--el-bg);
+    color: inherit;
+    border-color: inherit;
+    padding: 1em;
+    font-weight: normal;
+}
+
+textarea {
+    overflow: auto;
+    height: auto;
+}
+
+a {
+    color: var(--body-fg);
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+ul {
+    list-style-type: "";
+    padding-inline-start: 0;
+
+    &.bullet {
+        list-style-type: disc;
+        padding-inline-start: 1.5rem;
+        & ul {
+            list-style-type: disc;
+        }
+    }
+
+    & ul {
+        padding-inline-start: 1.5rem;
+
+        & ul {
+            list-style-type: disc;
+        }
+    }
+}
+
+b,
+strong {
+    font-weight: 600;
+}
+
+code {
+    font-family: "Courier New", Courier, monospace;
+    font-weight: 900;
+}
+
+.container {
+    /* Locally-scoped CSS variables - adjust --_content-max-width & --_content-space-outside to your requirements */
+    --_content-max-width: 70ch;
+    --_content-space-outside: 0.75rem;
+
+    width: min(var(--_content-max-width), 100% - var(--_content-space-outside) * 2);
+    margin-inline: auto;
+}
+
+.flow > * + * {
+    margin-block-start: 1em;
+    /* em NOT rem & margin-block-start NOT margin-block-end */
+}
+
+.element {
+    padding: 1rem;
+}
+
+/** External links */
+a[href^="https"] {
+    color: var(--accent-colour);
+    text-underline-offset: 0.5em;
+
+    &::after {
+        color: var(--accent-colour);
+        content: " \27F6";
+    }
+}
+
+.header,
+.footer,
+.element {
+    background-color: var(--el-bg);
+}
+
+.footer {
+    text-align: center;
+    padding-block: 1.5em;
+}
+
+.header {
+    margin-block-start: 0;
+    padding-block: 1.5em 1em;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding-block: 1em 3em;
+}
+
+/** Skip link */
+.skip-link {
+    background-color: var(--body-bg);
+    color: var(--body-fg);
+    font-weight: 600;
+    padding: 0.3125rem 0.625rem;
+    margin-block-start: 0;
+    margin-inline-end: 0.625rem;
+}
+.element-invisible {
+    clip: rect(0.0625rem, 0.0625rem, 0.0625rem, 0.0625rem);
+    height: 0.0625rem;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    &.element-focusable:active,
+    &.element-focusable:focus {
+        clip: auto;
+        height: auto;
+        overflow: visible;
+    }
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 0.0625rem;
+    height: 0.0625rem;
+    padding: 0;
+    margin: -0.0625rem;
+    overflow: hidden;
+    clip-path: inset(0);
+    border: 0;
+}

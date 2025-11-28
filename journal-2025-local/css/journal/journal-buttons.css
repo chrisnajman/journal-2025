@@ -1,0 +1,86 @@
+.journal {
+    & button {
+        width: fit-content;
+        color: var(--el-bg);
+        padding: 1em 0.75em;
+    }
+
+    @media (hover: hover) {
+        & button:hover {
+            opacity: 0.7;
+        }
+    }
+
+    /* Class names begin with 'button' */
+    & [class|="button"] {
+        background-color: var(--accent-colour);
+        border-radius: 100vw;
+        text-box: trim-both cap alphabetic;
+    }
+
+    @supports not (text-box: trim-both cap alphabetic) {
+        & [class|="button"] {
+            padding-block: 0.5em 0.75em;
+        }
+    }
+
+    /* Class names end in 'button' */
+    & [class$="button"] {
+        color: var(--accent-colour);
+        margin-inline-start: auto;
+        border-block-end: 0.0625rem solid currentColor;
+        padding: 0.75rem 0 0.25em;
+        font-size: 1rem;
+    }
+}
+
+/* Shared in form and entry */
+@media (hover: hover) {
+    .journal .button-journal-entry-delete:hover,
+    .journal .button-cancel-image-upload:hover {
+        opacity: 1;
+        background-color: var(--warning);
+    }
+}
+
+/* Create / Delete all */
+.journal-button-group {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+
+    & .toggle-disabled {
+        border-radius: 0.5rem;
+        padding-block: 0.5em;
+
+        &:disabled {
+            pointer-events: none;
+            opacity: 0.2;
+            background-color: var(--body-fg);
+        }
+    }
+
+    & .button-create-entry {
+        grid-column: 2;
+        font-size: clamp(1.25rem, 1.1495rem + 0.4673vw, 1.5rem);
+    }
+
+    & .delete-all-entries {
+        grid-column: 1;
+        background-color: var(--warning);
+    }
+
+    & .export-entries {
+        grid-column: 3;
+        justify-self: end;
+        background-color: var(--accent-colour);
+        border-radius: 100vw;
+    }
+
+    @media (width < 40.625rem) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+}

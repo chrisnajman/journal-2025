@@ -1,0 +1,28 @@
+.no-js {
+    & .theme-toggler,
+    & .loader,
+    & .loader::after,
+    & hr,
+    & .sticky-header-text,
+    & .primary-navigation,
+    & .journal-button-group {
+        display: none;
+    }
+
+    & .header {
+        position: static;
+    }
+}
+
+noscript p {
+    width: fit-content;
+    margin-inline: auto;
+    margin-block-start: 1rem;
+    border: 0.1875rem solid var(--warning);
+    background-color: var(--body-fg);
+    color: var(--el-bg);
+    padding: 1em 1.5em;
+    border-radius: 0.75rem;
+    text-align: center;
+    text-wrap: balance;
+}

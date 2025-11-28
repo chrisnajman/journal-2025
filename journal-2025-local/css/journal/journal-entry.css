@@ -1,0 +1,64 @@
+& .journal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+}
+
+.journal-item {
+    display: flex;
+    flex-direction: column;
+    background: var(--el-bg);
+    padding: 1.5em;
+    gap: 1rem;
+
+    box-shadow: var(--shadow-right-bottom) var(--shadow-colour);
+
+    & .remove-image-button {
+        margin-inline: auto;
+    }
+
+    & .journal-image-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem 0;
+        margin-inline: auto;
+        max-width: 37.5rem;
+
+        & img {
+            margin-inline: auto;
+        }
+    }
+
+    & .journal-entry {
+        display: flex;
+        flex-direction: column;
+        padding-block-end: 1.5em;
+        gap: 0.75rem;
+    }
+
+    & .text[contenteditable] {
+        outline: 0.125rem dotted rgb(var(--focus));
+        padding: 1em;
+
+        &:empty {
+            display: block;
+        }
+
+        &:focus {
+            cursor: default;
+            outline-style: solid;
+        }
+    }
+
+    & .journal-text-edit {
+        display: flex;
+        flex-direction: column;
+    }
+
+    & .button-journal-entry-delete {
+        margin-inline-start: auto;
+        border-radius: 0.5rem;
+    }
+}

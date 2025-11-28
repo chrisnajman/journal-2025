@@ -8,6 +8,7 @@
 - [JavaScript](#javascript)
 - [No JS](#no-js)
 - [IndexedDB](#indexeddb)
+- [Running the App from the Local File System]()
 - [CSS](#css)
 - [Accessibility](#accessibility)
 - [Theme Toggling](#theme-toggling)
@@ -259,6 +260,37 @@ A further step is required if your server is local. In the project root:
 
 > [!NOTE]
 > The default port for LiveServer is 5500. The safe range for custom ports is 5501–5999.
+
+[Back to menu](#menu)
+
+---
+
+## Running the App from the Local File System
+
+If you want to run the journal directly from your computer (without any servers or build tools), you only need the folder **journal-2025-local**.
+
+To launch the app:
+
+**1. Open your file browser**
+
+- Windows: File Explorer
+- macOS: Finder
+- Linux: Files (Nautilus/Konqueror/etc.)
+
+**2. Navigate into the `journal-2025-local` folder**
+
+**3. Double-click `index.html`**
+
+This opens the journal in your default web browser.  
+No "Live Server", no terminal commands, no Node modules - it's completely standalone.
+
+> [!NOTE]
+> All entries are saved locally using **IndexedDB**, in a database named `journal2025local`.
+
+> [!CAUTION]
+> The full application logic is inside the minified file `journal-2025-local.js`.  
+> Do **not** open this file in VSCode if you have auto-formatting enabled — VSCode will automatically unminify it and make the file much larger.  
+> (There is no need to edit this file.)
 
 [Back to menu](#menu)
 

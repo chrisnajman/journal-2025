@@ -1,0 +1,12 @@
+.focus-highlight {
+    animation: highlight-fade 1s ease-out forwards;
+}
+
+@keyframes highlight-fade {
+    from {
+        background-color: rgb(var(--focus));
+    }
+    to {
+        background-color: var(--el-bg);
+    }
+}
