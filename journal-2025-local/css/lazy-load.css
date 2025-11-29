@@ -1,8 +1,0 @@
-.lazy-loaded-image {
-    opacity: 0;
-    transition: opacity 1s ease;
-}
-
-.lazy-loaded-image:not(.lazy) {
-    opacity: 1;
-}
